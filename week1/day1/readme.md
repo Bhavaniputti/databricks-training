@@ -19,7 +19,7 @@
 | File Name | Description |
 |------------|-------------|
 | `datacreation.sql` | Database schema and insert statements |
-| `queries.sql` | All SQL practice queries |
+| `sql practice queries.pdf` | All SQL practice queries |
 | `output.md` | Query outputs with results |
 | `README.md` | Day 1 documentation |
 
