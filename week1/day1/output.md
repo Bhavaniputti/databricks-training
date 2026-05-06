@@ -262,6 +262,29 @@
 ---
 **Query #14**
 
+    -- 14. Select employees hired on or after March 1, 2021.
+    SELECT * FROM Employee
+    WHERE hire_date >= '2021-03-01';
+
+| emp_id | name        | age | salary  | department_id | hire_date  |
+| ------ | ----------- | --- | ------- | ------------- | ---------- |
+| 4      | Alice Blue  | 25  | 45000.0 | 3             | 2021-03-22 |
+| 6      | David Green | 38  | 70000.0 | 4             | 2022-05-18 |
+| 7      | Eve Black   | 40  | 55000.0 | 3             | 2021-08-30 |
+| 8      | Frank White | 32  | 48000.0 |               | 2021-07-10 |
+
+---
+**Query #15**
+
+    -- 15. Select employees hired in the last 2 years.
+    SELECT * FROM Employee
+    WHERE hire_date >= DATE_SUB(CURDATE(), INTERVAL 2 YEAR);
+
+There are no results to be displayed.
+
+---
+**Query #16**
+
     -- Aggregate Queries
     
     -- 16. Select the total salary of all employees.
@@ -273,7 +296,7 @@
 | 576000.0     |
 
 ---
-**Query #15**
+**Query #17**
 
     -- 17. Select the average salary of employees.
     SELECT AVG(salary) AS average_salary
@@ -284,7 +307,7 @@
 | 57600.0        |
 
 ---
-**Query #16**
+**Query #18**
 
     -- 18. Select the minimum salary in the Employee table.
     SELECT MIN(salary) AS minimum_salary
@@ -295,7 +318,7 @@
 | 45000.0        |
 
 ---
-**Query #17**
+**Query #19**
 
     -- 19. Select the number of employees in each department.
     SELECT department_id, COUNT(*) AS employee_count
@@ -311,7 +334,7 @@
 | 4             | 2              |
 
 ---
-**Query #18**
+**Query #20**
 
     -- 20. Select the average salary of employees in each department.
     SELECT department_id, AVG(salary) AS average_salary
@@ -327,7 +350,7 @@
 | 4             | 61500.0        |
 
 ---
-**Query #19**
+**Query #21**
 
     -- Group By Queries
     
@@ -345,7 +368,7 @@
 | 4             | 123000.0     |
 
 ---
-**Query #20**
+**Query #22**
 
     -- 22. Select the average age of employees in each department.
     SELECT department_id, AVG(age) AS average_age
@@ -361,7 +384,7 @@
 | 4             | 34.0        |
 
 ---
-**Query #21**
+**Query #23**
 
     -- 23. Select the number of employees hired in each year.
     SELECT YEAR(hire_date) AS hire_year, COUNT(*) AS employee_count
@@ -377,7 +400,7 @@
 | 2022      | 1              |
 
 ---
-**Query #22**
+**Query #24**
 
     -- 24. Select the highest salary in each department.
     SELECT department_id, MAX(salary) AS highest_salary
@@ -393,7 +416,7 @@
 | 4             | 70000.0        |
 
 ---
-**Query #23**
+**Query #25**
 
     -- 25. Select the department with the highest average salary.
     SELECT department_id, AVG(salary) AS average_salary
@@ -407,7 +430,7 @@
 | 1             | 65000.0        |
 
 ---
-**Query #24**
+**Query #26**
 
     -- Having Queries
     
@@ -422,7 +445,7 @@
 | 1             | 3              |
 
 ---
-**Query #25**
+**Query #27**
 
     -- 27. Select departments with an average salary greater than 55000.
     SELECT department_id, AVG(salary) AS average_salary
@@ -436,7 +459,7 @@
 | 4             | 61500.0        |
 
 ---
-**Query #26**
+**Query #28**
 
     -- 28. Select years with more than 1 employee hired.
     SELECT YEAR(hire_date) AS hire_year, COUNT(*) AS employee_count
@@ -452,7 +475,7 @@
 | 2021      | 3              |
 
 ---
-**Query #27**
+**Query #29**
 
     -- 29. Select departments with a total salary expense less than 100000.
     SELECT department_id, SUM(salary) AS total_salary
@@ -465,7 +488,7 @@
 |               | 48000.0      |
 
 ---
-**Query #28**
+**Query #30**
 
     -- 30. Select departments with the maximum salary above 75000.
     SELECT department_id, MAX(salary) AS max_salary
@@ -478,7 +501,7 @@
 | 1             | 80000.0    |
 
 ---
-**Query #29**
+**Query #31**
 
     -- Order By Queries
     
@@ -501,7 +524,7 @@
 | 3      | Bob Brown   | 45  | 80000.0 | 1             | 2018-02-12 |
 
 ---
-**Query #30**
+**Query #32**
 
     -- 32. Select all employees ordered by their age in descending order.
     SELECT *
@@ -522,7 +545,7 @@
 | 4      | Alice Blue  | 25  | 45000.0 | 3             | 2021-03-22 |
 
 ---
-**Query #31**
+**Query #33**
 
     -- 33. Select all employees ordered by their hire date in ascending order.
     SELECT *
@@ -543,7 +566,7 @@
 | 6      | David Green | 38  | 70000.0 | 4             | 2022-05-18 |
 
 ---
-**Query #32**
+**Query #34**
 
     -- 34. Select employees ordered by their department and then by their salary.
     SELECT *
@@ -564,7 +587,7 @@
 | 6      | David Green | 38  | 70000.0 | 4             | 2022-05-18 |
 
 ---
-**Query #33**
+**Query #35**
 
     -- 35. Select departments ordered by the total salary of their employees.
     SELECT department_id, SUM(salary) AS total_salary
@@ -581,7 +604,7 @@
 |               | 48000.0      |
 
 ---
-**Query #34**
+**Query #36**
 
     -- Join Queries
     
@@ -604,7 +627,7 @@
 | Hannah Lee    | Marketing       |
 
 ---
-**Query #35**
+**Query #37**
 
     -- 37. Select project names along with the department names they belong to.
     SELECT p.name AS project_name, d.name AS department_name
@@ -624,7 +647,7 @@
 | Project Zeta    | Marketing       |
 
 ---
-**Query #36**
+**Query #38**
 
     -- 38. Select employee names and their corresponding project names.
     SELECT e.name AS employee_name, p.name AS project_name
@@ -655,7 +678,7 @@
 | Grace Kelly   | Project Theta   |
 
 ---
-**Query #37**
+**Query #39**
 
     -- 39. Select all employees and their departments, including those without a department.
     SELECT e.name AS employee_name, d.name AS department_name
@@ -677,7 +700,7 @@
 | Hannah Lee    | Marketing       |
 
 ---
-**Query #38**
+**Query #40**
 
     -- 40. Select all departments and their employees, including departments without employees.
     SELECT d.name AS department_name, e.name AS employee_name
@@ -698,7 +721,7 @@
 | Marketing       | Hannah Lee    |
 
 ---
-**Query #39**
+**Query #41**
 
     -- 41. Select employees who are not assigned to any project.
     SELECT *
@@ -710,7 +733,7 @@
 There are no results to be displayed.
 
 ---
-**Query #40**
+**Query #42**
 
     -- 42. Select employees and the number of projects their department is working on.
     SELECT e.name, COUNT(p.project_id) AS project_count
@@ -732,7 +755,7 @@ There are no results to be displayed.
 | Hannah Lee  | 2             |
 
 ---
-**Query #41**
+**Query #43**
 
     -- 43. Select the departments that have no employees.
     SELECT d.name
@@ -744,7 +767,7 @@ There are no results to be displayed.
 There are no results to be displayed.
 
 ---
-**Query #42**
+**Query #44**
 
     -- 44. Select employee names who share the same department with 'John Doe'.
     SELECT name
@@ -762,7 +785,7 @@ There are no results to be displayed.
 | Grace Kelly |
 
 ---
-**Query #43**
+**Query #45**
 
     -- 45. Select the department name with the highest average salary.
     SELECT d.name
@@ -778,7 +801,7 @@ There are no results to be displayed.
 | IT   |
 
 ---
-**Query #44**
+**Query #46**
 
     -- Nested and Correlated Queries
     
@@ -795,7 +818,7 @@ There are no results to be displayed.
 | 3      | Bob Brown | 45  | 80000.0 | 1             | 2018-02-12 |
 
 ---
-**Query #45**
+**Query #47**
 
     -- 47. Select employees whose salary is above the average salary.
     SELECT *
@@ -813,7 +836,7 @@ There are no results to be displayed.
 | 9      | Grace Kelly | 27  | 65000.0 | 1             | 2018-11-13 |
 
 ---
-**Query #46**
+**Query #48**
 
     -- 48. Select the second highest salary from the Employee table.
     SELECT MAX(salary) AS second_highest_salary
@@ -828,7 +851,7 @@ There are no results to be displayed.
 | 70000.0               |
 
 ---
-**Query #47**
+**Query #49**
 
     -- 49. Select the department with the most employees.
     SELECT department_id, COUNT(*) AS employee_count
@@ -842,7 +865,7 @@ There are no results to be displayed.
 | 1             | 3              |
 
 ---
-**Query #48**
+**Query #50**
 
     -- 50. Select employees who earn more than the average salary of their department.
     SELECT e1.*
@@ -861,7 +884,7 @@ There are no results to be displayed.
 | 7      | Eve Black   | 40  | 55000.0 | 3             | 2021-08-30 |
 
 ---
-**Query #49**
+**Query #51**
 
     -- 51. Select the nth highest salary (for example, 3rd highest).
     SELECT DISTINCT salary
@@ -874,7 +897,7 @@ There are no results to be displayed.
 | 65000.0 |
 
 ---
-**Query #50**
+**Query #52**
 
     -- 52. Select employees who are older than all employees in the HR department.
     SELECT *
@@ -896,7 +919,7 @@ There are no results to be displayed.
 | 7      | Eve Black   | 40  | 55000.0 | 3             | 2021-08-30 |
 
 ---
-**Query #51**
+**Query #53**
 
     -- 53. Select departments where the average salary is greater than 55000.
     SELECT department_id, AVG(salary) AS average_salary
@@ -910,7 +933,7 @@ There are no results to be displayed.
 | 4             | 61500.0        |
 
 ---
-**Query #52**
+**Query #54**
 
     -- 54. Select employees who work in a department with at least 2 projects.
     SELECT *
@@ -933,7 +956,7 @@ There are no results to be displayed.
 | 10     | Hannah Lee  | 30  | 53000.0 | 4             | 2020-02-25 |
 
 ---
-**Query #53**
+**Query #55**
 
     -- 55. Select employees who were hired on the same date as 'Jane Smith'.
     SELECT *
@@ -949,7 +972,7 @@ There are no results to be displayed.
 | 2      | Jane Smith | 34  | 60000.0 | 2             | 2019-07-23 |
 
 ---
-**Query #54**
+**Query #56**
 
     -- Combined Moderate Difficulty Queries
     
@@ -963,7 +986,7 @@ There are no results to be displayed.
 | 103000.0     |
 
 ---
-**Query #55**
+**Query #57**
 
     -- 57. Select the average salary of employees in each department, ordered by the average salary in descending order.
     SELECT department_id, AVG(salary) AS average_salary
@@ -980,7 +1003,7 @@ There are no results to be displayed.
 |               | 48000.0        |
 
 ---
-**Query #56**
+**Query #58**
 
     -- 58. Select departments with more than 1 employee and an average salary greater than 55000.
     SELECT department_id, COUNT(*) AS employee_count, AVG(salary) AS average_salary
@@ -995,7 +1018,7 @@ There are no results to be displayed.
 | 4             | 2              | 61500.0        |
 
 ---
-**Query #57**
+**Query #59**
 
     -- 59. Select employees hired in the last 2 years, ordered by their hire date.
     SELECT *
@@ -1006,7 +1029,7 @@ There are no results to be displayed.
 There are no results to be displayed.
 
 ---
-**Query #58**
+**Query #60**
 
     -- 60. Select the total number of employees and the average salary for departments with more than 2 employees.
     SELECT department_id,
@@ -1021,7 +1044,7 @@ There are no results to be displayed.
 | 1             | 3               | 65000.0        |
 
 ---
-**Query #59**
+**Query #61**
 
     -- 61. Select the name and salary of employees whose salary is above the average salary of their department.
     SELECT e1.name, e1.salary
@@ -1040,7 +1063,7 @@ There are no results to be displayed.
 | Eve Black   | 55000.0 |
 
 ---
-**Query #60**
+**Query #62**
 
     -- 62. Select the names of employees who are hired on the same date as the oldest employee in the company.
     SELECT name
@@ -1057,7 +1080,7 @@ There are no results to be displayed.
 | Bob Brown |
 
 ---
-**Query #61**
+**Query #63**
 
     -- 63. Select the department names along with the total number of projects they are working on, ordered by the number of projects.
     SELECT d.name, COUNT(p.project_id) AS total_projects
@@ -1075,7 +1098,7 @@ There are no results to be displayed.
 | HR        | 1              |
 
 ---
-**Query #62**
+**Query #64**
 
     -- 64. Select the employee name with the highest salary in each department.
     SELECT e1.name, e1.department_id, e1.salary
@@ -1094,7 +1117,7 @@ There are no results to be displayed.
 | Eve Black   | 3             | 55000.0 |
 
 ---
-**Query #63**
+**Query #65**
 
     -- 65. Select the names and salaries of employees who are older than the average age of employees in their department.
     SELECT e1.name, e1.salary
