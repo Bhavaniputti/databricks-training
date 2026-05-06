@@ -714,27 +714,7 @@ There are no results to be displayed.
 | Hannah Lee    | Marketing       |
 
 ---
-**Query #40**
 
-    -- 40. Select all departments and their employees, including departments without employees.
-    SELECT d.name AS department_name, e.name AS employee_name
-    FROM Department d
-    LEFT JOIN Employee e
-    ON d.department_id = e.department_id;
-
-| department_name | employee_name |
-| --------------- | ------------- |
-| IT              | John Doe      |
-| IT              | Bob Brown     |
-| IT              | Grace Kelly   |
-| HR              | Jane Smith    |
-| HR              | Charlie P.    |
-| Finance         | Alice Blue    |
-| Finance         | Eve Black     |
-| Marketing       | David Green   |
-| Marketing       | Hannah Lee    |
-
----
 **Query #41**
 
     -- 41. Select employees who are not assigned to any project.
@@ -769,18 +749,7 @@ There are no results to be displayed.
 | Hannah Lee  | 2             |
 
 ---
-**Query #43**
 
-    -- 43. Select the departments that have no employees.
-    SELECT d.name
-    FROM Department d
-    LEFT JOIN Employee e
-    ON d.department_id = e.department_id
-    WHERE e.emp_id IS NULL;
-
-There are no results to be displayed.
-
----
 **Query #44**
 
     -- 44. Select employee names who share the same department with 'John Doe'.
@@ -853,21 +822,7 @@ There are no results to be displayed.
 | 9      | Grace Kelly | 27  | 65000.0 | 1             | 2018-11-13 |
 
 ---
-**Query #48**
 
-    -- 48. Select the second highest salary from the Employee table.
-    SELECT MAX(salary) AS second_highest_salary
-    FROM Employee
-    WHERE salary < (
-        SELECT MAX(salary)
-        FROM Employee
-    );
-
-| second_highest_salary |
-| --------------------- |
-| 70000.0               |
-
----
 **Query #49**
 
     -- 49. Select the department with the most employees.
@@ -914,28 +869,7 @@ There are no results to be displayed.
 | 65000.0 |
 
 ---
-**Query #52**
 
-    -- 52. Select employees who are older than all employees in the HR department.
-    SELECT *
-    FROM Employee
-    WHERE age > ALL (
-        SELECT age
-        FROM Employee
-        WHERE department_id = (
-            SELECT department_id
-            FROM Department
-            WHERE name = 'HR'
-        )
-    );
-
-| emp_id | name        | age | salary  | department_id | hire_date  |
-| ------ | ----------- | --- | ------- | ------------- | ---------- |
-| 3      | Bob Brown   | 45  | 80000.0 | 1             | 2018-02-12 |
-| 6      | David Green | 38  | 70000.0 | 4             | 2022-05-18 |
-| 7      | Eve Black   | 40  | 55000.0 | 3             | 2021-08-30 |
-
----
 **Query #53**
 
     -- 53. Select departments where the average salary is greater than 55000.
@@ -1082,23 +1016,6 @@ There are no results to be displayed.
 | Bob Brown   | 80000.0 |
 | David Green | 70000.0 |
 | Eve Black   | 55000.0 |
-
----
-**Query #62**
-
-    -- 62. Select the names of employees who are hired on the same date as the oldest employee in the company.
-    SELECT name
-    FROM Employee
-    WHERE hire_date = (
-        SELECT hire_date
-        FROM Employee
-        ORDER BY age DESC
-        LIMIT 1
-    );
-
-| name      |
-| --------- |
-| Bob Brown |
 
 ---
 **Query #63**
