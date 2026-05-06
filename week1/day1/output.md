@@ -68,10 +68,9 @@
     (9, 'Project Iota', NULL);  -- Project without a department
 
 ---
+# -- Basic Queries
 
 **Query #1**
-
-    -- Basic Queries
     
     -- 1. Select all columns from the Employee table.
     SELECT * FROM Employee;
@@ -153,9 +152,9 @@
 | Grace Kelly |
 
 ---
-**Query #6**
+# --String Matching Queries
 
-    -- String Matching Queries
+**Query #6**
     
     -- 6. Select employees whose names start with 'J'.
     SELECT * FROM Employee
@@ -223,9 +222,12 @@
 | 3      | Bob Brown | 45  | 80000.0 | 1             | 2018-02-12 |
 
 ---
+
+# -- Date Queries
+
 **Query #11**
 
-    -- Date Queries
+    
     
     -- 11. Select employees hired in the year 2020.
     SELECT * FROM Employee
@@ -283,9 +285,12 @@
 There are no results to be displayed.
 
 ---
+
+# -- Aggregate Queries
+
 **Query #16**
 
-    -- Aggregate Queries
+ 
     
     -- 16. Select the total salary of all employees.
     SELECT SUM(salary) AS total_salary
@@ -350,9 +355,11 @@ There are no results to be displayed.
 | 4             | 61500.0        |
 
 ---
+
+ # -- Group By Queries
+
 **Query #21**
 
-    -- Group By Queries
     
     -- 21. Select the total salary for each department.
     SELECT department_id, SUM(salary) AS total_salary
@@ -430,9 +437,10 @@ There are no results to be displayed.
 | 1             | 65000.0        |
 
 ---
-**Query #26**
 
-    -- Having Queries
+# -- Having Queries
+
+**Query #26**
     
     -- 26. Select departments with more than 2 employees.
     SELECT department_id, COUNT(*) AS employee_count
@@ -475,6 +483,9 @@ There are no results to be displayed.
 | 2021      | 3              |
 
 ---
+
+ # -- Order By Queries
+
 **Query #29**
 
     -- 29. Select departments with a total salary expense less than 100000.
@@ -503,7 +514,7 @@ There are no results to be displayed.
 ---
 **Query #31**
 
-    -- Order By Queries
+   
     
     -- 31. Select all employees ordered by their salary in ascending order.
     SELECT *
@@ -604,9 +615,12 @@ There are no results to be displayed.
 |               | 48000.0      |
 
 ---
+
+# -- Join Queries
+
 **Query #36**
 
-    -- Join Queries
+   
     
     -- 36. Select employee names along with their department names.
     SELECT e.name AS employee_name, d.name AS department_name
@@ -801,9 +815,12 @@ There are no results to be displayed.
 | IT   |
 
 ---
+
+# -- Nested and Correlated Queries
+
 **Query #46**
 
-    -- Nested and Correlated Queries
+    
     
     -- 46. Select the employee with the highest salary.
     SELECT *
@@ -972,9 +989,13 @@ There are no results to be displayed.
 | 2      | Jane Smith | 34  | 60000.0 | 2             | 2019-07-23 |
 
 ---
+
+
+# -- Combined Moderate Difficulty Queries
+
 **Query #56**
 
-    -- Combined Moderate Difficulty Queries
+    
     
     -- 56. Select the total salary of employees hired in the year 2020.
     SELECT SUM(salary) AS total_salary
